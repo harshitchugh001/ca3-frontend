@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import Sendemail from './components/Sendemail';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route key="Home" path='/' exact element={<Home></Home>} />
+            <Route  key="email"path="/work/:token" exact element={<Sendemail></Sendemail>} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
